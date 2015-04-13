@@ -4,52 +4,29 @@ import UIKit
 
 var str = "Hello, playground"
 
-//func BSearch(arryList :[Int], key : Int)
-func test(key:Int)
+func binarySearch(key:Int, arryList:[Int]) ->Int
 {
-    var arryList = [2,6,8,9,20,30,40,50,60,70]
-    for num in arryList
+  var start = arryList.startIndex
+  var end = arryList.endIndex - 1
+  
+  while start <= end
+  {
+    var mid = start + (end - start) / 2
+    if key < arryList[mid]
     {
-        println("numbers\(num)")
+        end = mid - 1
     }
-    var start = arryList.startIndex
-    var end = arryList.endIndex
-    
-    
-    while start <= end
+    else if key > arryList[mid]
     {
-        var mid = arryList.count / 2
-        
-        if key == numericCast(<#x: T#>)
-        {
-            println("The value is in \(mid)")
-        }
-            
-        else if key >= mid
-        {
-            
-            start == mid
-            mid = (start + end)/2
-            println("The value does not Exict and the number")
-        }
-        else if key <= mid
-        {
-            end == mid
-            
-            mid = (start + end)/2
-        }
-        else
-        {
-            
-        }
-        break
+        start = mid + 1
     }
+    else
+    {
+        return mid
+    }
+   }
+    return -1;
 }
-
-
-
-    var key : Int
-
-//BSearch(5)
-
-test(6)
+var arryList = [2,6,8,9,20,30,40,50,60,70]
+var result = binarySearch(20, arryList)
+println("Habibi !!! \(result)")
